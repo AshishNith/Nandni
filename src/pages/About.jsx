@@ -3,6 +3,8 @@ import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { motion } from 'framer-motion'
 import data from '../data/data.json'
+import profile from '../assets/profile.jpg'
+
 
 const About = () => {
   const { aboutSection } = data
@@ -31,7 +33,7 @@ const About = () => {
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.8 }}
-              src="src/assets/profile.jpg"
+              src={profile}
               alt="Nandni Verse" 
               className='w-96 h-96 object-cover rounded-lg shadow-2xl hover:scale-105 transition-transform duration-300'
             />
