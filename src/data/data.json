@@ -1,0 +1,114 @@
+{
+  "siteInfo": {
+    "name": "NandniVerse",
+    "tagline": "Welcome to Our Universe",
+    "description": "A space where we explore lifestyle, fashion, and daily life experiences together."
+  },
+  "socialLinks": {
+    "youtube": "https://www.youtube.com/@Nandni_Verse",
+    "instagram": "https://www.instagram.com",
+    "twitter": "https://twitter.com"
+  },
+  "stats": {
+    "subscribers": "1.2K+",
+    "totalViews": "50K+",
+    "videos": "50+",
+    "community": "Growing"
+  },
+  "aboutSection": {
+    "mainHeading": "About NandniVerse",
+    "welcomeText": "Hey there! I'm Nandni, and welcome to NandniVerse - a space where we explore lifestyle, fashion, and daily life experiences together. Through my channel, I share authentic stories and experiences that resonate with young minds.",
+    "mission": {
+      "title": "My Mission",
+      "description": "I'm on a mission to inspire and empower through authentic content creation.",
+      "points": [
+        "Share meaningful stories that resonate and inspire",
+        "Build a supportive community of creators",
+        "Encourage personal growth and creativity",
+        "Create content that makes a positive impact"
+      ]
+    },
+    "philosophy": {
+      "title": "Content Philosophy",
+      "description": "My content is guided by these core principles:",
+      "points": [
+        "Authenticity in every story shared",
+        "Quality over quantity",
+        "Engaging and interactive experiences",
+        "Continuous learning and improvement"
+      ]
+    },
+    "contentCategories": [
+      {
+        "title": "Fashion & Style",
+        "description": "Fashion tips, outfit ideas, and style inspiration",
+        "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3"
+      },
+      {
+        "title": "Lifestyle",
+        "description": "Daily vlogs, routines, and life experiences",
+        "image": "https://images.unsplash.com/photo-1511988617509-a57c8a288659?ixlib=rb-4.0.3"
+      },
+      {
+        "title": "Student Life",
+        "description": "Study tips, college life, and educational content",
+        "image": "https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-4.0.3"
+      }
+    ]
+  },
+  "blogPosts": [
+    {
+      "id": 1,
+      "title": "My Journey as a Content Creator",
+      "date": "March 15, 2024",
+      "category": "Personal",
+      "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3",
+      "excerpt": "Exploring the ups and downs of my content creation journey and what I've learned along the way.",
+      "readTime": "5 min read"
+    },
+    {
+      "id": 2,
+      "title": "Behind the Scenes: Making Videos",
+      "date": "March 10, 2024",
+      "category": "Tutorial",
+      "image": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?ixlib=rb-4.0.3",
+      "excerpt": "A peek into my video creation process, from ideation to final editing.",
+      "readTime": "8 min read"
+    },
+    {
+      "id": 3,
+      "title": "Finding Your Style in Fashion",
+      "date": "March 5, 2024",
+      "category": "Fashion",
+      "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3",
+      "excerpt": "Tips and tricks for developing your personal style and building a versatile wardrobe.",
+      "readTime": "6 min read"
+    }
+  ],
+  "navigation": {
+    "items": [
+      {
+        "name": "Home",
+        "path": "/",
+        "icon": "ri-home-8-line"
+      },
+      {
+        "name": "Profile",
+        "path": "/profile",
+        "icon": "ri-user-line"
+      },
+      {
+        "name": "Blog",
+        "path": "/blog",
+        "icon": "ri-news-line"
+      }
+    ]
+  },
+  "blogCategories": [
+    "All",
+    "Personal",
+    "Tutorial",
+    "Fashion",
+    "Lifestyle"
+  ]
+}
