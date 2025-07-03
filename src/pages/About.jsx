@@ -128,7 +128,6 @@ const About = () => {
           </div>
         </motion.div>
       </div>
-      <Footer />
     </div>
   )
 }
