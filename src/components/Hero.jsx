@@ -18,7 +18,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative py-36 bg-gray-950 overflow-hidden">
+    <div className="relative py-36 pt-20 bg-gray-950 overflow-hidden">
       {/* 🔥 Glowing background animation */}
       <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
         <div className="w-[600px] h-[600px] bg-gradient-to-r from-pink-500 to-purple-500 opacity-20 blur-3xl rounded-full animate-pulse" />

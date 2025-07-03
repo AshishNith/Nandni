@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   const socialLinks = [
-    { icon: "ri-youtube-fill", url: "#", label: "YouTube" },
-    { icon: "ri-instagram-fill", url: "#", label: "Instagram" },
-    { icon: "ri-twitter-x-fill", url: "#", label: "Twitter" },
-    { icon: "ri-tiktok-fill", url: "#", label: "TikTok" }
+    { icon: "ri-youtube-fill", url: "https://www.youtube.com/@Nandni_Verse", label: "YouTube" },
+    { icon: "ri-instagram-fill", url: "https://www.instagram.com/nandni_verse/", label: "Instagram" },
+    // { icon: "ri-twitter-x-fill", url: "#", label: "Twitter" },
+    // { icon: "ri-tiktok-fill", url: "#", label: "TikTok" }
   ]
 
   const quickLinks = [

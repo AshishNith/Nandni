@@ -10,30 +10,79 @@ const Navbar = () => {
 
     return (
         <>
-            <div className='relative z-1000 w-full h-20 bg-transparent'></div>
-            <div className='fixed left-0 top-0 z-50 flex items-center justify-between py-5 px-4 w-full backdrop-blur-sm text-gray-200 transition duration-500 ease-in-out'>
-                <div className="font-bold text-4xl transition-all duration-500 ease-in-out hover:scale-110 hover:text-pink-500 hover:shadow-lg hover:shadow-pink-500/50">NandniVerse</div>
-                <div className="md:hidden">
-                    <button onClick={toggleMenu} className="text-4xl">
-                        <i className={`ri-menu-3-line ${isOpen ? 'hidden' : 'block'}`}></i>
-                        <i className={`ri-close-line ${isOpen ? 'block' : 'hidden'}`}></i>
-                    </button>
-                </div>
-                <div className={`flex-col md:flex md:flex-row md:gap-14 font transition duration-500 ease-in-out ${isOpen ? 'flex' : 'hidden'} md:flex`}>
-                    <a id='navItem' href="/" className='text-4xl font-thin transition-all duration-300 hover:text-pink-500 hover:scale-125 hover:rotate-[360deg] hover:shadow-lg hover:shadow-pink-500/50'><i className="ri-home-8-line"></i></a>
-                    <a id='navItem' href="/profile" className='text-4xl font-thin transition-all duration-300 hover:text-pink-500 hover:scale-125 hover:rotate-[360deg] hover:shadow-lg hover:shadow-pink-500/50'><i className="ri-user-line"></i></a>
-                    <a id='navItem' href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className='text-4xl font-thin transition-all duration-300 hover:text-pink-500 hover:scale-125 hover:rotate-[360deg] hover:shadow-lg hover:shadow-pink-500/50'><i className="ri-youtube-fill"></i></a>
-                    <a id='navItem' href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className='text-4xl font-thin transition-all duration-300 hover:text-pink-500 hover:scale-125 hover:shadow-lg hover:shadow-pink-500/50'><i className="ri-instagram-fill hover:rotate-[360deg]"></i></a>
+            {/* Spacer div to prevent content from being hidden under fixed navbar */}
+            <div className='relative z-10 w-full h-20 bg-transparent'></div>
+            
+            {/* Main navbar container */}
+            <nav className='fixed left-0 top-0 z-50 w-full py-4 px-6  backdrop-blur-md border-b border-white/10'>
+                <div className='max-w-7xl mx-auto flex items-center justify-between'>
+                    {/* Logo/Brand */}
                     <Link 
-                        to="/blog" 
-                        className="text-4xl font-thin transition-all duration-300 hover:text-pink-500 hover:scale-125 hover:rotate-[360deg] hover:shadow-lg hover:shadow-pink-500/50"
+                        to="/" 
+                        className="text-3xl font-bold text-white transition-all duration-300 hover:text-pink-500 hover:scale-105"
                     >
-                        <i className="ri-news-line"></i>
+                        NandniVerse
                     </Link>
+
+                    {/* Mobile menu button */}
+                    <div className="md:hidden">
+                        <button 
+                            onClick={toggleMenu} 
+                            className="text-3xl text-white focus:outline-none"
+                            aria-label="Toggle menu"
+                        >
+                            {isOpen ? (
+                                <i className="ri-close-line"></i>
+                            ) : (
+                                <i className="ri-menu-3-line"></i>
+                            )}
+                        </button>
+                    </div>
+
+                    {/* Navigation links */}
+                    <div className={`absolute md:relative top-full left-0 w-full md:w-auto bg-black/80 md:bg-transparent backdrop-blur-lg md:backdrop-blur-none transition-all duration-300 ease-in-out ${isOpen ? 'flex flex-col items-center py-4 space-y-6' : 'hidden'} md:flex md:flex-row md:space-x-8 md:space-y-0`}>
+                        <NavLink to="/" icon="ri-home-8-line" label="Home" />
+                        <NavLink to="/profile" icon="ri-user-line" label="Profile" />
+                        <ExternalLink 
+                            href="https://www.youtube.com/@Nandni_Verse" 
+                            icon="ri-youtube-fill" 
+                            label="YouTube"
+                        />
+                        <ExternalLink 
+                            href="https://www.instagram.com/nandni_verse/" 
+                            icon="ri-instagram-fill" 
+                            label="Instagram"
+                        />
+                        <NavLink to="/blog" icon="ri-news-line" label="Blog" />
+                    </div>
                 </div>
-            </div>
+            </nav>
         </>
     );
 }
+
+// Reusable component for internal links
+const NavLink = ({ to, icon, label }) => (
+    <Link 
+        to={to} 
+        className="flex items-center text-2xl text-white/90 hover:text-pink-500 transition-all duration-300 group"
+    >
+        <i className={`${icon} mr-2 group-hover:rotate-[30deg] transition-transform duration-300`}></i>
+        <span className="text-lg font-medium">{label}</span>
+    </Link>
+);
+
+// Reusable component for external links
+const ExternalLink = ({ href, icon, label }) => (
+    <a 
+        href={href} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="flex items-center text-2xl text-white/90 hover:text-pink-500 transition-all duration-300 group"
+    >
+        <i className={`${icon} mr-2 group-hover:rotate-[30deg] transition-transform duration-300`}></i>
+        <span className="text-lg font-medium">{label}</span>
+    </a>
+);
 
 export default Navbar;
