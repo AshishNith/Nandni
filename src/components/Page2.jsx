@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-// Replace with your channel ID
-const CHANNEL_ID = 'UCJSKclKElkU5UD3BmFtNkWQ'; 
-const API_KEY = 'AIzaSyDX3b3up-E_A-rpaM-uOSuZv1XkPvTh878';
+const API_KEY = 'AIzaSyAJ5UPU47WciQIGkyvtLdE_QiUD2_JFOiI';
+const CHANNEL_ID = 'UCJSKclKElkU5UD3BmFtNkWQ';
 
 const Page2 = () => {
   const [stats, setStats] = useState({
@@ -33,16 +32,19 @@ const Page2 = () => {
           `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`
         );
         const data = await res.json();
-        const statsData = data.items[0].statistics;
+
+        const statsData = data.items?.[0]?.statistics;
+
+        if (!statsData) throw new Error('Invalid API response');
 
         setStats({
           subscribers: parseInt(statsData.subscriberCount),
           totalViews: parseInt(statsData.viewCount),
           videos: parseInt(statsData.videoCount),
-          community: 0 // Placeholder
+          community: 0
         });
       } catch (err) {
-        console.error('Failed to fetch YouTube stats', err);
+        console.error('Error fetching YouTube stats:', err.message);
       }
     };
 
@@ -52,8 +54,8 @@ const Page2 = () => {
   useEffect(() => {
     if (!inView) return;
 
-    const duration = 2; // seconds
-    const frameDuration = 1000 / 60; // 60fps
+    const duration = 2;
+    const frameDuration = 1000 / 60;
     const totalFrames = Math.round(duration * 1000 / frameDuration);
 
     const animateCount = (start, end, key) => {
@@ -62,10 +64,10 @@ const Page2 = () => {
         frame++;
         const progress = frame / totalFrames;
         const currentValue = Math.round(start + progress * (end - start));
-        
+
         setDisplayStats(prev => ({
           ...prev,
-          [key]: formatNumber(currentValue.toString())
+          [key]: formatNumber(currentValue)
         }));
 
         if (frame === totalFrames) {
@@ -77,15 +79,12 @@ const Page2 = () => {
     animateCount(0, stats.subscribers, 'subscribers');
     animateCount(0, stats.totalViews, 'totalViews');
     animateCount(0, stats.videos, 'videos');
-    // Community remains static
-
   }, [inView, stats]);
 
-  const formatNumber = (num) => {
-    if (!num) return '0';
-    const n = parseInt(num);
-    if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M+';
-    if (n >= 1000) return (n / 1000).toFixed(1) + 'K+';
+  const formatNumber = (n) => {
+    if (!n) return '0';
+    if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M+';
+    if (n >= 1_000) return (n / 1_000).toFixed(1) + 'K+';
     return n.toString();
   };
 
@@ -106,7 +105,7 @@ const Page2 = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg border border-white/20 p-6 text-center"
+              className="bg-pink-500/80 backdrop-blur-md rounded-xl shadow-lg border border-white/20 p-6 text-center"
             >
               <h3 className="text-4xl font-bold text-white mb-2">
                 {stat.value}

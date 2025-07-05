@@ -42,7 +42,8 @@ const Footer = () => {
         </svg>
       </motion.div>
 
-      <div className="glass-effect pt-32 pb-8 px-4 relative">
+      <div className="pt-32 pb-8 px-4 relative bg-black/40 backdrop-blur-md rounded-t-3xl">
+
         <div className="max-w-6xl mx-auto">
           {/* Footer Content Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">

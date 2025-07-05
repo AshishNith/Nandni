@@ -10,11 +10,9 @@ const Navbar = () => {
 
     return (
         <>
-            {/* Spacer div to prevent content from being hidden under fixed navbar */}
-            <div className='relative z-10 w-full h-20 bg-transparent'></div>
-            
+        <div className='w-full h-20'></div>
             {/* Main navbar container */}
-            <nav className='fixed left-0 top-0 z-50 w-full py-4 px-6  backdrop-blur-md border-b border-white/10'>
+            <nav className='fixed left-0 top-0 z-50 h-20 w-full py-4 px-6  backdrop-blur-md border-b border-white/10'>
                 <div className='max-w-7xl mx-auto flex items-center justify-between'>
                     {/* Logo/Brand */}
                     <Link 
@@ -32,9 +30,9 @@ const Navbar = () => {
                             aria-label="Toggle menu"
                         >
                             {isOpen ? (
-                                <i className="ri-close-line"></i>
+                            <i className="ri-close-line"></i>
                             ) : (
-                                <i className="ri-menu-3-line"></i>
+                            <i className="ri-menu-3-line"></i>
                             )}
                         </button>
                     </div>

@@ -11,26 +11,21 @@ const Blog = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
+      transition: { staggerChildren: 0.1 }
     }
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1
-    }
+    visible: { y: 0, opacity: 1 }
   };
 
   return (
     <div className='w-screen min-h-screen bg-gradient-to-br from-pink-500/60 to-pink-700/75'>
       <Navbar />
-      
+
       {/* Hero Section */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="container mx-auto px-4 py-16 text-center"
@@ -45,13 +40,13 @@ const Blog = () => {
 
       {/* Categories */}
       <div className="container mx-auto px-4 py-8">
-        <motion.div 
+        <motion.div
           className="flex flex-wrap justify-center gap-4 mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          {['All', 'Personal', 'Tutorial', 'Fashion', 'Lifestyle'].map((category) => (
+          {blogCategories.map((category) => (
             <motion.button
               key={category}
               whileHover={{ scale: 1.05 }}
@@ -64,7 +59,7 @@ const Blog = () => {
         </motion.div>
 
         {/* Blog Posts Grid */}
-        <motion.div 
+        <motion.div
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
@@ -101,9 +96,9 @@ const Blog = () => {
                   whileTap={{ scale: 0.98 }}
                   className="text-pink-300 hover:text-pink-400 font-medium flex items-center gap-2"
                 >
-                  Read More 
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  Read More
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                 </motion.button>
               </div>
@@ -111,10 +106,10 @@ const Blog = () => {
           ))}
         </motion.div>
       </div>
-      
+
       <Footer />
     </div>
   );
 };
 
-export default Blog; 
+export default Blog;
